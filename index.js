@@ -206,8 +206,8 @@ async function warpToCurve() {
       const curveY = startCurve.my(t);
       const normal = startCurve.mNormal(t);
 
-      const offsetX = (normal.x * (y - newHeight / 2) * scaleX); 
-      const offsetY = (normal.y * (y - newHeight / 2) * scaleY);
+      const offsetX = (normal.x * (y - (newHeight * scaleY / 2)) * scaleX); 
+      const offsetY = (normal.y * (y - (newHeight * scaleY / 2)) * scaleY);
       
       const newX = curveX + offsetX;
       const newY = curveY + offsetY;
