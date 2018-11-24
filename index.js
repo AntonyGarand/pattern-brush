@@ -185,7 +185,7 @@ async function warpToCurve() {
   const scaleX = +scaleElement.value || 1;
   const scaleY = +scaleElement.value || 1;
   const newWidth = width * scaleX;
-  const newHeight = width * scaleY;
+  const newHeight = height * scaleY;
   const startCurve = curve;
 
   const count = Math.ceil(startCurve.length / newWidth);
@@ -196,7 +196,9 @@ async function warpToCurve() {
     const warp = new Warp(newSvg);
     warp.interpolate(4);
     warp.transform(([x, y]) => {
-      // y = y * scaleY;
+      // Flipping it around for fabric.js
+      y = height - y;
+      
       let t = ((x * scaleX) + i * newWidth) / startCurve.length;
       if (t < 0) t = 0;
       if (t > 1) t = 1;
@@ -204,9 +206,11 @@ async function warpToCurve() {
       const curveY = startCurve.my(t);
       const normal = startCurve.mNormal(t);
 
-      // TODO: The part after the addition is buggy
-      const newX = curveX + (normal.x * y * scaleX);// - normal.x * newHeight / 2;
-      const newY = curveY + (normal.y * y * scaleY);// - normal.y * newHeight / 2;
+      const offsetX = (normal.x * (y - newHeight / 2) * scaleX); 
+      const offsetY = (normal.y * (y - newHeight / 2) * scaleY);
+      
+      const newX = curveX + offsetX;
+      const newY = curveY + offsetY;
 
       return [newX, newY];
     });
