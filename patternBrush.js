@@ -1,6 +1,20 @@
+// Logic to place and warp the texture along the curve
+
+let isTextureEnabled = true;
+function toggleTexture(){
+  if(isTextureEnabled && currentFabricSvg){
+    canvas.remove(currentFabricSvg);
+  }
+  isTextureEnabled = !isTextureEnabled;
+
+  if(isTextureEnabled){
+    warpToCurve();
+  }
+}
+
 let isWarping = false;
 function warpIfNotAlready() {
-  if (!isWarping) {
+  if (isTextureEnabled && !isWarping) {
     warpToCurve();
   }
 }
@@ -8,6 +22,9 @@ function warpIfNotAlready() {
 let currentFabricSvg;
 
 async function warpToCurve() {
+  if(!isTextureEnabled){
+    return;
+  }
   isWarping = true;
   const {width, height, svg} = await selectedSVG;
   const scaleX = scale || +scaleElement.value || 1;
@@ -68,9 +85,13 @@ async function warpToCurve() {
     canvas.remove(currentFabricSvg);
   }
   currentFabricSvg = group;
-  canvas.insertAt(group, 0);
-  if (curve !== startCurve) {
-    warpToCurve();
+  if(isTextureEnabled){
+    canvas.insertAt(group, 0);
+    if (curve !== startCurve) {
+      warpToCurve();
+    } else {
+      isWarping = false;
+    }
   } else {
     isWarping = false;
   }

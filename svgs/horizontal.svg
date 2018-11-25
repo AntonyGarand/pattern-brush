@@ -1,0 +1,8 @@
+<svg id="square" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+    <rect x="0" y="0" width="50" height="50" rx="0" ry="0"
+          fill="#ede" stroke="#000" stroke-width="2"/>
+    <line x1="0" x2="50" y1="10" y2="10" fill="none" stroke="#000"/>
+    <line x1="0" x2="50" y1="20" y2="20" fill="none" stroke="#000"/>
+    <line x1="0" x2="50" y1="30" y2="30" fill="none" stroke="#000"/>
+    <line x1="0" x2="50" y1="40" y2="40" fill="none" stroke="#000"/>
+</svg>

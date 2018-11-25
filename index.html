@@ -7,6 +7,7 @@
 
 <div>
     <button onClick="toggleNormals()">Toggle normals</button>
+    <button onClick="toggleTexture()">Toggle texture</button>
 </div>
 
 <style>
@@ -19,8 +20,18 @@
 Texture:
 <div id="svgContainer">
     <span>
-        <label for="warning">
-            <input id="warning" value="warning" type="radio" name="svg" selected="true"><img src="./svgs/warning.svg"/>
+        <label for="square">
+            <input id="square" value="square" type="radio" name="svg" checked><img src="./svgs/square.svg"/>
+        </label>
+    </span>
+    <span>
+        <label for="horizontal">
+            <input id="horizontal" value="horizontal" type="radio" name="svg"><img src="./svgs/horizontal.svg"/>
+        </label>
+    </span>
+    <span>
+        <label for="vertical">
+            <input id="vertical" value="vertical" type="radio" name="svg"><img src="./svgs/vertical.svg"/>
         </label>
     </span>
     <span>
@@ -44,5 +55,6 @@ Canvas:
 <script src="flatten.js"></script>
 <script src="fabricBezier.js"></script>
 <script src="index.js"></script>
+<script src="normals.js"></script>
 <script src="setup.js"></script>
 <script src="patternBrush.js"></script>

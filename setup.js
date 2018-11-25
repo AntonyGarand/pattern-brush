@@ -1,3 +1,5 @@
+// Creating the fabric.js canvas, creating the curve
+
 const canvas = new fabric.Canvas('c');
 let scale = 0;
 const bezier = {

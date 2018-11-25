@@ -14,7 +14,7 @@ const handleConfig = {
 
 const lineConfig = {
   fill: '',
-  stroke: 'black',
+  stroke: 'red',
   objectCaching: false
 };
 

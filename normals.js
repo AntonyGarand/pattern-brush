@@ -9,10 +9,10 @@ function drawNormals() {
       x: curve.mx(t),
       y: curve.my(t),
     };
-    const tangent = curve.mNormal(t);
+    const normal = curve.mNormal(t);
     const to = {
-      x: from.x + tangent.x * length,
-      y: from.y + tangent.y * length
+      x: from.x + normal.x * length,
+      y: from.y + normal.y * length
     };
 
     const line = new fabric.Line([from.x, from.y, to.x, to.y], {

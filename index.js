@@ -29,6 +29,6 @@ function changePattern(svgName) {
   selectedSVG.then(()=>{warpIfNotAlready()})
 }
 
-changePattern('dna');
+changePattern('square');
 
 const scaleElement = document.getElementById('scale');
