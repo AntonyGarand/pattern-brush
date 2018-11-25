@@ -30,3 +30,5 @@ function changePattern(svgName) {
 }
 
 changePattern('dna');
+
+const scaleElement = document.getElementById('scale');

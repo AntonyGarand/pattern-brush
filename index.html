@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 
 <div>
-    <label for="scale">Scale: <input id="scale" name="scale" type="number" step="0.1" value="1" onChange="warpToCurve()"></label>
+    <label for="scale">Scale: <input id="scale" name="scale" type="number" step="0.01" value="1" onChange="warpToCurve()"></label>
     <button onclick="warpToCurve()">Refresh</button>
+</div>
+
+<div>
+    <button onClick="toggleNormals()">Toggle normals</button>
 </div>
 
 <style>
@@ -40,4 +44,5 @@ Canvas:
 <script src="flatten.js"></script>
 <script src="fabricBezier.js"></script>
 <script src="index.js"></script>
+<script src="setup.js"></script>
 <script src="patternBrush.js"></script>
