@@ -182,8 +182,8 @@ function warpIfNotAlready(){
 }
 async function warpToCurve() {
   isWarping = true;
-  const scaleX = +scaleElement.value || 1;
-  const scaleY = +scaleElement.value || 1;
+  const scaleX = scale || +scaleElement.value || 1;
+  const scaleY = scale || +scaleElement.value || 1;
   const newWidth = width * scaleX;
   const newHeight = height * scaleY;
   const startCurve = curve;
@@ -197,7 +197,8 @@ async function warpToCurve() {
     warp.interpolate(4);
     warp.transform(([x, y]) => {
       // Flipping it around for fabric.js
-      y = height - y;
+      // Substracting height / 2 to center it, instead of making it on / on top of the item
+      y = height / 2 - y;
       
       let t = ((x * scaleX) + i * newWidth) / startCurve.length;
       if (t < 0) t = 0;
@@ -206,8 +207,8 @@ async function warpToCurve() {
       const curveY = startCurve.my(t);
       const normal = startCurve.mNormal(t);
 
-      const offsetX = (normal.x * (y - (newHeight * scaleY / 2)) * scaleX); 
-      const offsetY = (normal.y * (y - (newHeight * scaleY / 2)) * scaleY);
+      const offsetX = (normal.x * y * scaleX); 
+      const offsetY = (normal.y * y * scaleY);
       
       const newX = curveX + offsetX;
       const newY = curveY + offsetY;
@@ -323,3 +324,14 @@ canvas.on({
     warpIfNotAlready();
   }
 });
+
+
+let scale = 0.5;
+let direction = 0.01;
+setInterval(()=>{
+  scale += direction;
+  if(scale >= 2 || scale <= 0.5){
+    direction *= -1;
+  }
+  warpIfNotAlready();
+}, 50)
