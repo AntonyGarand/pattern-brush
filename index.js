@@ -1,5 +1,5 @@
 const canvas = new fabric.Canvas('c');
-
+let scale = 0;
 const bezier = {
   start: [100, 100],
   first: [600, 400],
@@ -168,7 +168,7 @@ let curve = new Bezier(
 );
 
 const svg = document.getElementById('svgElement');
-flatten(svg);
+// flatten(svg);
 const width = svg.getAttribute('width');
 const height = svg.getAttribute('height');
 let currentFabricSvg;
@@ -325,13 +325,12 @@ canvas.on({
   }
 });
 
-
-let scale = 0.5;
-let direction = 0.01;
-setInterval(()=>{
-  scale += direction;
-  if(scale >= 2 || scale <= 0.5){
-    direction *= -1;
-  }
-  warpIfNotAlready();
-}, 50)
+// let scale = 0.5;
+// let direction = 0.01;
+// setInterval(()=>{
+//   scale += direction;
+//   if(scale >= 2 || scale <= 0.5){
+//     direction *= -1;
+//   }
+//   warpIfNotAlready();
+// }, 50)
