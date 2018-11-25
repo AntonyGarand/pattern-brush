@@ -1,0 +1,10 @@
+<svg id="endo" xmlns="http://www.w3.org/2000/svg" width="50" height="100" viewBox="0 0 50 100">
+    <rect x="0" y="0" width="50" height="100" rx="10" ry="10"
+          fill="#5C81FF" stroke="2C51aF" stroke-width="2"/>
+    <ellipse
+            cx="25"
+            cy="40"
+            rx="10"
+            ry="20"
+            fill="#2C33AD"/>
+</svg>
